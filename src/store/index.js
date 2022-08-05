@@ -297,9 +297,11 @@ const store = createStore({
             return axiosClient.post(`/survey/${surveyId}/answer`, {answers})
                                 .then((res) => {
                                     console.log(res)
+                                    return res
                                 })
                                 .catch((err) => {
                                     console.error(err)
+                                    return err
                                 })
         },
         register({commit}, user){

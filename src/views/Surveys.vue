@@ -34,7 +34,8 @@
         </div>
       </template>
       <div v-if="surveysLoading" class="flex justify-center">Loading...</div>
-      <div v-else class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+      <div v-else-if="surveys.data.length">
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
           <SurveysListItem
             v-for="(survey, index) in surveys.data"
             :key="survey.id"
@@ -43,6 +44,7 @@
             :style="{animationDelay: `${index * 0.1}s`}"
             @delete="deleteSurvey(survey)"
           />
+        </div>
           <div class="flex justify-center mt-5">
             <nav
               class="relative z-0 inline-flex justify-center rounded-md shadow-sm"

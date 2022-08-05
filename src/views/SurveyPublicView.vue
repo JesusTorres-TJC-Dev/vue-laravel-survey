@@ -78,14 +78,14 @@
     store.dispatch("getSurveyBySlug", route.params.slug)
 
     const submitSurvey = () => {
-        //console.log(JSON.stringify(answers.value, undefined, 2));
+        // console.log(JSON.stringify(answers.value, undefined, 2));
         // return
         store.dispatch("saveSurveyAnswer", {
             surveyId: survey.value.id,
             answers: answers.value
         })
         .then((res) => {
-            if(res.status === 201){
+            if(res.status === 201 || res.status === 200){
                 surveyFinished.value = true;
             }
         })
