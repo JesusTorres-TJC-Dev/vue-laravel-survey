@@ -1,8 +1,10 @@
 import axios from "axios";
 import store from "./store";
+import apiConnect from "./service/config";
 
 const axiosClient = axios.create({
-    baseURL: `${import.meta.env.VITE_API_BASE_URL}/api`
+    //baseURL: `${import.meta.env.VITE_API_BASE_URL}/api`
+    baseURL: `${apiConnect.VITE_API_BASE_URL}/api`
 })
 
 axiosClient.interceptors.request.use(config => {
